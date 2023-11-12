@@ -82,16 +82,22 @@ const UserForm = ({ variant }: IProps) => {
 					</>
 				)}
 				<div className={styles.checkbox_row}>
-					<input
-						type='checkbox'
-						id='rememberme'
-						name='rememberme'
-						checked={rememberMe}
-						onChange={(e) =>
-							handleRemeberMeCheckbox(e.target.checked)
-						}
-					/>
-					<label htmlFor='rememberme'>Zapamiętaj</label>
+					<div className={styles.checkbox_remember}>
+						{' '}
+						<input
+							type='checkbox'
+							id='rememberme'
+							name='rememberme'
+							checked={rememberMe}
+							onChange={(e) =>
+								handleRemeberMeCheckbox(e.target.checked)
+							}
+						/>
+						<label htmlFor='rememberme'>Zapamiętaj</label>
+					</div>
+					<div className={styles.checkbox_forgot}>
+						<Link href='/register'>Zapomniałem hasła</Link>
+					</div>
 				</div>
 				<button className={styles.auth_form__submit} type='submit'>
 					Submit

@@ -87,11 +87,11 @@ $color-secondary-400: #cf7e0c;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: flex-start;
+	align-items: center;
 	width: min-content;
 
 	h1 {
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
 		font-size: 2rem;
 		font-weight: 600;
 	}
@@ -124,18 +124,32 @@ $color-secondary-400: #cf7e0c;
 }
 .checkbox_row {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	margin-bottom: 2rem;
+	width: 100%;
 
-	label {
-		margin-left: 0.5rem;
+	.checkbox_remember {
+		display: flex;
+		justify-content: flex-start;
+		cursor: pointer;
+
+		label {
+			margin-left: 0.5rem;
+		}
+
+		input {
+			width: 18px;
+			height: 18px;
+			margin: 3px 3px 0 0;
+			accent-color: $color-primary-400;
+		}
 	}
 
-	input {
-		width: 18px;
-		height: 18px;
-		margin: 3px 3px 0 0;
-		accent-color: $color-primary-400;
+	.checkbox_forgot {
+		&:hover {
+			color: $color-primary-400;
+			text-decoration: underline;
+		}
 	}
 }
 .auth_form__submit {
@@ -155,11 +169,14 @@ $color-secondary-400: #cf7e0c;
 .login_register__toggle {
 	font-weight: 600;
 	font-size: 1.1rem;
+	text-align: center;
+	width: 100%;
+
 	a {
 		color: $color-primary-400;
-		text-decoration: underline;
 
 		&:hover {
+			text-decoration: underline;
 			color: $color-secondary-400;
 		}
 	}
