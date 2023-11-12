@@ -1,12 +1,11 @@
 import React from 'react';
 import styles from '../../_styles/user.module.scss';
-import UserForm from '../../_components/user/UserForm';
+import AuthForm from '../../_components/user/AuthForm';
 
 const LoginPage = () => {
 	return (
-		<div className={styles.admin__container}>
-			<h1>Zaloguj</h1>
-			<UserForm />
+		<div className={styles.auth__container}>
+			<AuthForm variant='login' />
 		</div>
 	);
 };

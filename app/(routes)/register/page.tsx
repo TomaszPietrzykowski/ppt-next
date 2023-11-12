@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from '../../_styles/user.module.scss';
+import AuthForm from '@/app/_components/user/AuthForm';
 
 const RegisterPage = () => {
-  return (
-    <div className={styles.admin__container}>
-      <h1>Register</h1>
-    </div>
-  );
+	return (
+		<div className={styles.auth__container}>
+			<AuthForm variant='register' />
+		</div>
+	);
 };
 
 export default RegisterPage;

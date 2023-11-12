@@ -28,6 +28,7 @@ const PostCard: React.FC<IProps> = ({ post }) => {
 						width={600}
 						height={600}
 						alt='sensible desc'
+						unoptimized
 					/>
 				</div>
 				<div className={styles.content}>
