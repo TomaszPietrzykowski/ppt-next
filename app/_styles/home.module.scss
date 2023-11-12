@@ -1,0 +1,47 @@
+$color-backround-01: #edf1f3;
+$color-backround-02: #ffffff;
+$primary-text: #472704;
+
+.page__container {
+  width: 100%;
+  height: auto;
+
+  padding-bottom: 160rem;
+}
+
+.hero__container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__slogan {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  h1 {
+    font-size: 4rem;
+    color: $primary-text;
+  }
+}
+
+.hero__image {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.featured__grid {
+  background-color: $color-backround-01;
+  padding: 4rem;
+}
+
+.featured__post {
+  padding: 2rem;
+  background-color: $color-backround-02;
+  border-radius: 1rem;
+  max-width: 600px;
+}
