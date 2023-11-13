@@ -3,6 +3,10 @@ $color-primary-600: #114393;
 $color-secondary-200: #fc990e;
 $color-secondary-400: #cf7e0c;
 $color-error-text: #e02e06;
+$color-grey-100: #f9fbff;
+$color-grey-200: #cad0db;
+$color-grey-300: #b2bbcb;
+$color-grey-600: #4f5b70;
 
 .dashboard__container {
 	width: 100%;
@@ -16,12 +20,18 @@ $color-error-text: #e02e06;
 	list-style: none;
 	display: flex;
 	flex-direction: column;
-	padding-top: 4rem;
+	padding-top: 1rem;
+	padding-left: 0;
+
+	nav {
+		width: 100%;
+	}
 
 	li {
 		padding: 1rem 2rem;
 		margin: 0.5rem;
-		border: 1px solid lightgray;
+		color: $color-grey-600;
+		font-weight: 600;
 	}
 }
 
@@ -94,10 +104,9 @@ $color-error-text: #e02e06;
 	grid-template-columns: 300px 1fr;
 	min-height: 100vh;
 	padding-top: 86px; // <-- main nav padding
-
-	& > * {
-		border: 1px solid rgb(231, 234, 235);
-	}
+}
+.user_layout__sidenav {
+	background-color: $color-grey-100;
 }
 .user_layout__sidenav ul {
 	position: fixed;
@@ -105,7 +114,7 @@ $color-error-text: #e02e06;
 	left: 0;
 }
 .user_layout__content {
-	padding-top: 4rem;
+	padding-top: 3rem;
 }
 
 .auth__container {
@@ -246,4 +255,8 @@ $color-error-text: #e02e06;
 	100% {
 		opacity: 1;
 	}
+}
+.edit_post__container {
+	max-width: 1050px;
+	padding: 0 6rem;
 }

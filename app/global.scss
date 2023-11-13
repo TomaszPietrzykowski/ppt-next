@@ -1,5 +1,11 @@
+$color-inactive: rgb(192, 199, 212);
 $color-primary-400: #1557bf;
+$color-primary-600: #114393;
+$color-primary-700: #0b2a5b;
+$color-primary-800: #091221;
+$color-secondary-200: #fc990e;
 $color-secondary-400: #cf7e0c;
+$color-error-text: #e02e06;
 
 html {
 	-webkit-text-size-adjust: 100%;
@@ -30,10 +36,14 @@ pre {
 	border-style: solid;
 	border-color: currentColor;
 }
-h1,
+h1 {
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+
 h2 {
-	font-size: inherit;
-	font-weight: inherit;
+	font-size: 1.5rem;
+	font-weight: 600;
 }
 a {
 	color: inherit;
@@ -85,5 +95,16 @@ pre {
 		&:hover {
 			color: $color-secondary-400;
 		}
+	}
+}
+
+.tiptap {
+	min-height: 60vh;
+	border: 2px solid $color-inactive;
+	border-radius: 6px;
+	padding: 1rem;
+
+	&:focus {
+		outline-color: $color-primary-600;
 	}
 }

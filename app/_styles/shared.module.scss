@@ -1,0 +1,41 @@
+$color-primary-400: #1557bf;
+$color-primary-600: #114393;
+$color-secondary-200: #fc990e;
+$color-secondary-400: #cf7e0c;
+$color-error-text: #e02e06;
+
+.editor_toggle,
+.editor_toggle_active {
+	color: $color-primary-600;
+	border: 1px solid $color-primary-600;
+	padding: 0.5rem;
+	padding-bottom: 0;
+	border-radius: 6px;
+	width: min-content;
+	cursor: pointer;
+
+	& > * {
+		color: inherit;
+	}
+}
+.editor_toggle_active {
+	color: white;
+	border: 1px solid $color-primary-600;
+	background-color: $color-primary-600;
+
+	& > * {
+		color: inherit;
+	}
+}
+
+.editor_toolbar_container {
+	display: flex;
+	width: 100%;
+	justify-content: flex-start;
+	align-items: center;
+	padding-block: 6px;
+	margin-block: 6px;
+	gap: 6px;
+	flex-wrap: wrap;
+	// border: 1px solid lightgrey;
+}
