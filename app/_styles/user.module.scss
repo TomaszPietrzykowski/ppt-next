@@ -1,4 +1,6 @@
 $color-primary-400: #1557bf;
+$color-primary-600: #114393;
+$color-secondary-200: #fc990e;
 $color-secondary-400: #cf7e0c;
 $color-error-text: #e02e06;
 
@@ -24,7 +26,7 @@ $color-error-text: #e02e06;
 }
 
 .admin__container {
-	padding: 20rem;
+	padding: 4rem;
 	width: 100%;
 
 	h1 {
@@ -50,10 +52,39 @@ $color-error-text: #e02e06;
 	border-radius: 1rem;
 	margin: 1rem 0.5rem;
 	padding: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 
 	h2 {
 		font-size: 1.6rem;
 		margin-bottom: 1rem;
+	}
+}
+.admin__card__inner_flex,
+.admin__card__inner_controls {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.admin__card__inner_controls {
+	align-items: flex-end;
+
+	button {
+		min-width: 210px;
+		padding: 1rem 2rem;
+		margin: 0.8rem;
+		cursor: pointer;
+		border-radius: 4px;
+		font-size: 1.1rem;
+		background-color: $color-primary-600;
+		color: white;
+
+		&:hover {
+			background-color: $color-primary-400;
+		}
 	}
 }
 

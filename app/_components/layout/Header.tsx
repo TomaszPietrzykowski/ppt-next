@@ -1,7 +1,32 @@
+'use client';
+
+import { useGlobalContext } from '@/app/_context/store';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Header = () => {
+	const { user, logIn, logOut } = useGlobalContext();
+
+	useEffect(() => {
+		if (!user) {
+			const lsUser = localStorage.getItem('_user');
+			if (lsUser) {
+				const refreshUser = JSON.parse(lsUser);
+				logIn(refreshUser);
+			} else {
+				logOut(null);
+			}
+		}
+	}, [logIn, logOut, user]);
+
+	const formatUserName = (name: string): string => {
+		let output = name.trim().toUpperCase();
+		if (output.length > 10) {
+			output = output.slice(0, 8) + '(...)';
+		}
+		return output;
+	};
+
 	return (
 		<header className='layout__header'>
 			<div className='layout__header-logo'>
@@ -30,7 +55,7 @@ const Header = () => {
 						<li>KONTAKT</li>
 					</Link>
 					<Link href='/user'>
-						<li>KONTO</li>
+						<li>{user ? formatUserName(user.name) : 'LOGIN'}</li>
 					</Link>
 				</ul>
 			</nav>

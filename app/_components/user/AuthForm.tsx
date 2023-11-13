@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../_styles/user.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useGlobalContext } from '@/app/_context/store';
 
 interface IProps {
 	variant: 'login' | 'register' | 'edit';
@@ -17,7 +18,8 @@ interface IAuthBody {
 }
 
 const UserForm = ({ variant }: IProps) => {
-	const [loading, setLoading] = useState<boolean>(false);
+	const { user, logIn, logOut, loadingUser, setLoadingUser } =
+		useGlobalContext();
 	const [name, setName] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
@@ -30,11 +32,17 @@ const UserForm = ({ variant }: IProps) => {
 	const [rememberMe, setRememberMe] = useState<boolean>(true);
 	const router = useRouter();
 
+	useEffect(() => {
+		if (user && user.name) {
+			router.replace('/user');
+		}
+	}, [user, router]);
+
 	const executeRequest = async (userData: IAuthBody) => {
 		try {
-			setLoading(true);
+			setLoadingUser(true);
 			const rawResponse = await fetch(
-				`http://localhost:5000/api/users/${variant}`,
+				`https://tophoneys.tomaszpietrzykowski.com/api/users/${variant}`,
 				{
 					method: 'POST',
 					headers: {
@@ -45,23 +53,30 @@ const UserForm = ({ variant }: IProps) => {
 				}
 			);
 			const res = await rawResponse.json();
-			console.log(res);
-			if (res?.status == 'success' && res.data?.token) {
-				if (rememberMe) localStorage.setItem('_token', res.data.token);
-				console.log(res); // handle state
+
+			if (res?.status == 'success' && res.data?.user) {
+				if (rememberMe) {
+					localStorage.setItem(
+						'_user',
+						JSON.stringify(res.data.user)
+					);
+				}
+				logIn(res.data.user);
 				resetForm();
 				router.replace('/user');
+			} else {
+				logOut(null);
 			}
-			setLoading(false);
+			setLoadingUser(false);
 		} catch (e) {
 			console.log(e);
-			setLoading(false);
+			setLoadingUser(false);
 		}
 	};
 
 	const submitAuthForm = (e: React.FormEvent) => {
 		e.preventDefault();
-		// // validation
+		// validation
 		if (variant !== 'login' && !name) {
 			setNameError('Podaj nam swoje imię :)');
 			return;
@@ -158,7 +173,7 @@ const UserForm = ({ variant }: IProps) => {
 						>
 							{nameError ? nameError : 'Imię'}
 						</label>
-						{loading ? (
+						{loadingUser ? (
 							<div className={styles.skeleton_input}></div>
 						) : (
 							<input
@@ -181,7 +196,7 @@ const UserForm = ({ variant }: IProps) => {
 				>
 					{emailError ? emailError : 'Email'}
 				</label>
-				{loading ? (
+				{loadingUser ? (
 					<div className={styles.skeleton_input}></div>
 				) : (
 					<input
@@ -198,7 +213,7 @@ const UserForm = ({ variant }: IProps) => {
 				>
 					{passwordError ? passwordError : 'Hasło'}
 				</label>
-				{loading ? (
+				{loadingUser ? (
 					<div className={styles.skeleton_input}></div>
 				) : (
 					<input
@@ -225,7 +240,7 @@ const UserForm = ({ variant }: IProps) => {
 								? passwordConfirmError
 								: 'Potwierdź hasło'}
 						</label>
-						{loading ? (
+						{loadingUser ? (
 							<div className={styles.skeleton_input}></div>
 						) : (
 							<input
@@ -265,7 +280,7 @@ const UserForm = ({ variant }: IProps) => {
 				<button
 					className={styles.auth_form__submit}
 					type='submit'
-					disabled={loading}
+					disabled={loadingUser}
 				>
 					{variant == 'login'
 						? 'Zaloguj'

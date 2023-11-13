@@ -1,4 +1,5 @@
 import Header from './_components/layout/Header';
+import { GlobalContextProvider } from './_context/store';
 import './global.scss';
 
 export const metadata = {
@@ -14,9 +15,11 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body>
-				<Header />
-				{children}
-				<h1>Footer</h1>
+				<GlobalContextProvider>
+					<Header />
+					{children}
+					<h1>Footer</h1>
+				</GlobalContextProvider>
 			</body>
 		</html>
 	);
