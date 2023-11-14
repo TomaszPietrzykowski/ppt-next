@@ -14,12 +14,19 @@ const Hero = () => {
 				className={styles.hero__image}
 				unoptimized
 			/>
+
 			<div className={styles.hero__slogan}>
-				<h1>
-					Transkulturowa <br />
-					Psychoterapia <br />
-					Pozytywna
-				</h1>
+				<div className={styles.romb_temp}>
+					<div className={styles.romb_inner}></div>
+					<div className={styles.romb_inner}></div>
+					<div className={styles.romb_inner}></div>
+					<div className={styles.romb_inner}></div>
+					<div className={styles.romb_inner}></div>
+					<div className={styles.romb_inner}></div>
+					<div className={styles.romb_inner}></div>
+					<div className={styles.romb_inner}></div>
+					<div className={styles.romb_inner}></div>
+				</div>
 			</div>
 		</div>
 	);

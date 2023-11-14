@@ -28,11 +28,15 @@ $color-grey-600: #4f5b70;
 	}
 
 	li {
-		padding: 1rem 2rem;
+		padding: 1rem 55px;
 		margin: 0.5rem;
 		color: $color-grey-600;
 		font-weight: 600;
 	}
+}
+
+.sidenav_link {
+	cursor: pointer;
 }
 
 .admin__container {
@@ -47,15 +51,26 @@ $color-grey-600: #4f5b70;
 }
 
 .user__profile {
-	max-width: 800px;
-	margin: auto;
-
-	h1 {
-		font-size: 2rem;
-	}
-
 	margin-bottom: 100rem;
+	padding: 0 2rem;
+
+	button {
+		min-width: 210px;
+		padding: 1rem 2rem;
+		margin-top: 3rem;
+		margin-right: 2rem;
+		cursor: pointer;
+		border-radius: 4px;
+		font-size: 1.1rem;
+		background-color: $color-primary-600;
+		color: white;
+
+		&:hover {
+			background-color: $color-primary-400;
+		}
+	}
 }
+
 .admin__card {
 	border: 1px solid lightblue;
 	box-shadow: 4px 4px 12px rgb(201, 203, 204);
@@ -78,24 +93,6 @@ $color-grey-600: #4f5b70;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-start;
-}
-.admin__card__inner_controls {
-	align-items: flex-end;
-
-	button {
-		min-width: 210px;
-		padding: 1rem 2rem;
-		margin: 0.8rem;
-		cursor: pointer;
-		border-radius: 4px;
-		font-size: 1.1rem;
-		background-color: $color-primary-600;
-		color: white;
-
-		&:hover {
-			background-color: $color-primary-400;
-		}
-	}
 }
 
 .user_layout__container {

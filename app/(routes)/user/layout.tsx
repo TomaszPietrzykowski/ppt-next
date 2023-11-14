@@ -25,7 +25,10 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 							<Link href='/user/edit'>
 								<li>STREFA AUTORA</li>
 							</Link>
-							<div onClick={() => logOut(null)}>
+							<div
+								className={styles.sidenav_link}
+								onClick={() => logOut(null)}
+							>
 								<li>WYLOGUJ</li>
 							</div>
 						</ul>
