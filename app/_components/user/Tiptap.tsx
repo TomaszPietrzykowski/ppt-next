@@ -29,7 +29,7 @@ const Tiptap = ({ description, onChange }: IProps) => {
 		'<h1><strong>Jouw zorgverzekering in 2024</strong></h1><ol><li><p>Wil je je huidige premie en nieuwe premie vergelijken? Klik dan op de button hieronder. Net als elk jaar verandert er in 2024 </p></li><li><p>wat aan jouw zorgverzekering.</p></li></ol><p>We vinden het belangrijk om je </p><ul><li><p>daarover te vertellen. Je vindt de </p></li><li><p>veranderingen in het </p></li><li><p>wijzigingsoverzicht in de bijlage</p></li></ul><p></p';
 
 	return (
-		<div>
+		<>
 			<button
 				onClick={() => {
 					editor?.commands.setContent(html);
@@ -37,9 +37,15 @@ const Tiptap = ({ description, onChange }: IProps) => {
 			>
 				load
 			</button>
-			<TiptapToolbar editor={editor} />
-			<EditorContent editor={editor} />
-		</div>
+			<div className={styles.editor_layout}>
+				<EditorContent editor={editor} />
+				<div className={styles.editor_toolbar_container}>
+					<div className={styles.sticky}>
+						<TiptapToolbar editor={editor} />
+					</div>
+				</div>
+			</div>
+		</>
 	);
 };
 

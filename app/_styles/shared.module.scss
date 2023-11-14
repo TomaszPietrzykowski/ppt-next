@@ -39,3 +39,22 @@ $color-error-text: #e02e06;
 	flex-wrap: wrap;
 	// border: 1px solid lightgrey;
 }
+.editor_layout {
+	display: grid;
+	grid-template-columns: 1fr 56px;
+}
+.editor_toolbar_container {
+	height: 100%; /* Example height for scrolling */
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-block: 0;
+	padding-block: 0;
+}
+
+.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 90px; /* Distance from the top of the parent */
+}
