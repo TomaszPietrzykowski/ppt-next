@@ -98,11 +98,11 @@ $color-grey-600: #4f5b70;
 }
 
 .user_layout__container {
+	margin-top: 100px;
 	display: grid;
 	width: 100%;
 	grid-template-columns: 300px 1fr;
 	min-height: 100vh;
-	padding-top: 86px; // <-- main nav padding
 }
 .user_layout__sidenav {
 	background-color: $color-grey-100;

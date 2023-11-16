@@ -1,6 +1,7 @@
 'use client';
 
 import { useGlobalContext } from '@/app/_context/store';
+import useScrollPosition from '@/app/_hooks/useScrollPosition';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
@@ -15,7 +16,14 @@ const Header = () => {
 	}, [user]);
 
 	return (
-		<header className='layout__header'>
+		<header
+			className='layout__header'
+			style={{
+				background: `rgba(255, 255, 255, ${
+					0 + useScrollPosition(0.003)
+				})`,
+			}}
+		>
 			<div className='layout__header-logo'>
 				<Link href='/'>
 					<h1>Michał Stachnik</h1>
