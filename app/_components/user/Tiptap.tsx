@@ -4,16 +4,30 @@ import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import styles from '@/app/_styles/shared.module.scss';
 import TiptapToolbar from './TiptapToolbar';
+import { useEffect } from 'react';
+
+const html = `<h1><strong>Jouw zorgverzekering in 2024</strong></h1>
+<ol>
+	<li><p> 2024 </p></li>
+	<li><p>wat aan jouw zorgverzekering.</p></li>
+</ol>
+<p>We vinden het belangrijk om je je huidige premie en nieuwe premie vergelijken. Klik dan op de button hieronder. Net als elk jaar verandert er in</p>
+<ul>
+<li><p>Daarover te vertellen. Je vindt!</p></li>
+<li><p>Veranderingen in het droom.</p></li>
+<li><p>Wijzigingsoverzicht in de bijlage</p></li>
+</ul>`;
 
 interface IProps {
 	description: string;
 	onChange: (richText: string) => void;
+	original_html?: string;
 }
 
-const Tiptap = ({ description, onChange }: IProps) => {
+const Tiptap = ({ onChange, original_html }: IProps) => {
 	const editor = useEditor({
 		extensions: [StarterKit.configure()],
-		content: description,
+		content: original_html,
 		editorProps: {
 			attributes: {
 				class: 'placeholder',
@@ -25,18 +39,8 @@ const Tiptap = ({ description, onChange }: IProps) => {
 		},
 	});
 
-	const html =
-		'<h1><strong>Jouw zorgverzekering in 2024</strong></h1><ol><li><p>Wil je je huidige premie en nieuwe premie vergelijken? Klik dan op de button hieronder. Net als elk jaar verandert er in 2024 </p></li><li><p>wat aan jouw zorgverzekering.</p></li></ol><p>We vinden het belangrijk om je </p><ul><li><p>daarover te vertellen. Je vindt de </p></li><li><p>veranderingen in het </p></li><li><p>wijzigingsoverzicht in de bijlage</p></li></ul><p></p';
-
 	return (
 		<>
-			<button
-				onClick={() => {
-					editor?.commands.setContent(html);
-				}}
-			>
-				load
-			</button>
 			<div className={styles.editor_layout}>
 				<EditorContent editor={editor} />
 				<div className={styles.editor_toolbar_container}>

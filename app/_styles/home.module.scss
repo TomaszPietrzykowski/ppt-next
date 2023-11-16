@@ -11,12 +11,11 @@ $primary-text: #472704;
 }
 
 .hero__container {
-	width: 100vw;
-	height: 100vh;
-	max-width: 100%;
+	width: 100%;
 	position: relative;
-	overflow: hidden;
+	// overflow: hidden;
 	background: $color-hero-bg;
+	overflow: hidden;
 }
 
 .hero__slogan {
@@ -37,7 +36,7 @@ $primary-text: #472704;
 }
 
 .hero__image {
-	max-width: 100%;
+	width: 100%;
 	object-fit: cover;
 	position: center;
 	opacity: 0.5;
@@ -60,7 +59,7 @@ $primary-text: #472704;
 	grid-template-columns: repeat(3, 120px);
 	grid-template-rows: repeat(3, 120px);
 	gap: 6px;
-	transform: rotate(45deg);
+	// transform: rotate(45deg);
 }
 .romb_inner {
 	border-radius: 8px;

@@ -1,7 +1,7 @@
 export interface IPost {
 	_id: string;
 	title: string;
-	content: string;
+	content_html: string;
 	snippet: string;
 	author: string;
 	slug: string;

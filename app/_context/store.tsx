@@ -6,6 +6,7 @@ import React, {
 	useContext,
 	Dispatch,
 	SetStateAction,
+	useEffect,
 } from 'react';
 
 type IProviderProps = {
@@ -29,25 +30,56 @@ interface IContextProps {
 	loadingUser: boolean;
 }
 
+const checkForPersistentLogin = () => {
+	let initialUser = null;
+	let lsUser;
+	if (typeof window !== 'undefined') {
+		lsUser = localStorage.getItem('_user');
+	}
+	if (lsUser) {
+		initialUser = JSON.parse(lsUser);
+	}
+	return initialUser;
+};
+
 const initialState: IContextProps = {
-	user: null,
+	user: checkForPersistentLogin(),
 	logIn: () => {},
 	logOut: () => {},
 	loadingUser: false,
 	setLoadingUser: () => {},
 };
 
+console.log('STORE: ', initialState);
+
 const GlobalContext = createContext<IContextProps>(initialState);
 
 export const GlobalContextProvider = ({ children }: IProviderProps) => {
-	const [user, setUser] = useState<IUser | null>(null);
+	const [user, setUser] = useState<IUser | null>(initialState.user);
 	const [loadingUser, setLoadingUser] = useState<boolean>(false);
+
+	useEffect(() => {
+		logIn(checkForPersistentLogin());
+	}, []);
+
+	const checkForPersistentLogin = () => {
+		let initialUser = null;
+		let lsUser;
+		if (typeof window !== 'undefined') {
+			lsUser = localStorage.getItem('_user');
+		}
+		if (lsUser) {
+			initialUser = JSON.parse(lsUser);
+		}
+		return initialUser;
+	};
 
 	const logIn: Dispatch<SetStateAction<IUser | null>> = (user) => {
 		setUser(user);
 	};
 
 	const logOut: Dispatch<SetStateAction<null>> = () => {
+		window.alert('logout called');
 		localStorage.removeItem('_user');
 		setUser(null);
 	};

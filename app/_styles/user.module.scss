@@ -1,5 +1,7 @@
 $color-primary-400: #1557bf;
 $color-primary-600: #114393;
+$color-primary-800: #081f45;
+$color-primary-900: #05152e;
 $color-secondary-200: #fc990e;
 $color-secondary-400: #cf7e0c;
 $color-error-text: #e02e06;
@@ -109,9 +111,6 @@ $color-grey-600: #4f5b70;
 	position: fixed;
 	top: 86px;
 	left: 0;
-}
-.user_layout__content {
-	padding-top: 3rem;
 }
 
 .auth__container {
@@ -253,7 +252,61 @@ $color-grey-600: #4f5b70;
 		opacity: 1;
 	}
 }
+
+.edit_post__title_bar {
+	padding: 2rem 0 4rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	h1 {
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		color: $color-primary-800;
+		font-weight: 500;
+		position: relative;
+
+		&::before {
+			width: 80px;
+			height: 3px;
+			top: -4px;
+			left: 0;
+			content: '';
+			position: absolute;
+			background-color: $color-secondary-200;
+			border-radius: 6px;
+		}
+	}
+	div {
+		button {
+			padding: 0.4rem 1rem;
+			background-color: $color-secondary-200;
+		}
+	}
+}
+
 .edit_post__container {
 	max-width: 1050px;
 	padding: 0 6rem;
+}
+.edit_post__title {
+	padding: 0.5rem 1rem;
+	margin-bottom: 1rem;
+	border-radius: 6px;
+	max-width: 800px;
+	outline: 2px solid $color-grey-200;
+
+	input {
+		font-size: 1.8rem;
+		font-weight: 600;
+		width: 100%;
+		color: $color-primary-800;
+		&:focus-visible {
+			outline: none;
+		}
+	}
+
+	&:focus-within {
+		outline-color: $color-primary-400;
+	}
 }

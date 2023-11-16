@@ -2,30 +2,17 @@
 
 import { useGlobalContext } from '@/app/_context/store';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Header = () => {
-	const { user, logIn, logOut } = useGlobalContext();
+	const { user } = useGlobalContext();
+	const [username, setUserName] = useState<string>('Login');
 
 	useEffect(() => {
-		if (!user) {
-			const lsUser = localStorage.getItem('_user');
-			if (lsUser) {
-				const refreshUser = JSON.parse(lsUser);
-				logIn(refreshUser);
-			} else {
-				logOut(null);
-			}
+		if (user) {
+			setUserName(user.name);
 		}
-	}, [logIn, logOut, user]);
-
-	const formatUserName = (name: string): string => {
-		let output = name.trim().toUpperCase();
-		if (output.length > 10) {
-			output = output.slice(0, 8) + '(...)';
-		}
-		return output;
-	};
+	}, [user]);
 
 	return (
 		<header className='layout__header'>
@@ -55,7 +42,7 @@ const Header = () => {
 						<li>KONTAKT</li>
 					</Link>
 					<Link href='/user'>
-						<li>{user ? formatUserName(user.name) : 'LOGIN'}</li>
+						<li>{username}</li>
 					</Link>
 				</ul>
 			</nav>
