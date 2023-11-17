@@ -1,11 +1,17 @@
-$color-inactive: rgb(192, 199, 212);
 $color-primary-400: #1557bf;
 $color-primary-600: #114393;
-$color-primary-700: #0b2a5b;
-$color-primary-800: #091221;
+$color-primary-800: #081f45;
+$color-primary-900: #05152e;
 $color-secondary-200: #fc990e;
 $color-secondary-400: #cf7e0c;
 $color-error-text: #e02e06;
+$color-save: #4ebb49;
+$color-grey-100: #edf0f6;
+$color-grey-200: #cad0db;
+$color-grey-300: #b2bbcb;
+$color-grey-400: #9aa3b1;
+$color-grey-500: #7a828d;
+$color-grey-600: #4f5b70;
 
 html {
 	-webkit-text-size-adjust: 100%;
@@ -65,16 +71,6 @@ pre {
 	width: 100%;
 	height: 100px;
 	background: white;
-	// background: linear-gradient(
-	// 		90deg,
-	// 		rgba(236, 240, 243, 0.4),
-	// 		rgba(244, 251, 251, 0.4)
-	// 	),
-	// 	linear-gradient(
-	// 		180deg,
-	// 		rgba(244, 251, 251, 0.5),
-	// 		rgba(244, 251, 251, 0)
-	// 	);
 	backdrop-filter: blur(8px);
 }
 .layout__header-logo {
@@ -102,11 +98,18 @@ pre {
 
 .tiptap {
 	min-height: 60vh;
-	border: 2px solid $color-inactive;
+	border: 2px solid $color-grey-100;
 	border-radius: 6px;
 	padding: 1rem;
+	opacity: 0.8;
+
+	blockquote {
+		color: $color-grey-500;
+		font-style: italic;
+	}
 
 	&:focus {
 		outline-color: $color-primary-600;
+		opacity: 1;
 	}
 }

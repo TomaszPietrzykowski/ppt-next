@@ -5,9 +5,12 @@ $color-primary-900: #05152e;
 $color-secondary-200: #fc990e;
 $color-secondary-400: #cf7e0c;
 $color-error-text: #e02e06;
-$color-grey-100: #f9fbff;
+$color-save: #4ebb49;
+$color-grey-100: #edf0f6;
 $color-grey-200: #cad0db;
 $color-grey-300: #b2bbcb;
+$color-grey-400: #9aa3b1;
+$color-grey-500: #7a828d;
 $color-grey-600: #4f5b70;
 
 .dashboard__container {
@@ -30,15 +33,51 @@ $color-grey-600: #4f5b70;
 	}
 
 	li {
-		padding: 1rem 55px;
+		padding: 0 55px;
 		margin: 0.5rem;
 		color: $color-grey-600;
 		font-weight: 600;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 0.5rem;
 	}
 }
 
 .sidenav_link {
 	cursor: pointer;
+	margin-block: 4px;
+}
+
+.sidenav_avatar__container {
+	width: 300px;
+	display: flex;
+	justify-content: center;
+}
+.sidenav_avatar {
+	width: 150px;
+	height: 150px;
+	border-radius: 100vh;
+	background: url('https://source.unsplash.com/random/150x150/?nature');
+}
+
+.sidenav_user_data {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 1rem 0 4rem;
+
+	h2 {
+		font-size: 1.4rem;
+		font-weight: 600;
+	}
+
+	p {
+		color: $color-grey-400;
+		font-size: italic;
+		font-size: 0.8rem;
+	}
 }
 
 .admin__container {
@@ -54,7 +93,12 @@ $color-grey-600: #4f5b70;
 
 .user__profile {
 	margin-bottom: 100rem;
-	padding: 0 2rem;
+	padding: 2rem 4rem;
+
+	h2 {
+		text-transform: uppercase;
+		color: $color-grey-500;
+	}
 
 	button {
 		min-width: 210px;
@@ -104,12 +148,13 @@ $color-grey-600: #4f5b70;
 	grid-template-columns: 300px 1fr;
 	min-height: 100vh;
 }
-.user_layout__sidenav {
-	background-color: $color-grey-100;
-}
+// .user_layout__sidenav {
+// 	background-color: $color-grey-100;
+// 	border-radius: 3rem;
+// }
 .user_layout__sidenav ul {
 	position: fixed;
-	top: 86px;
+	top: 100px;
 	left: 0;
 }
 
@@ -260,29 +305,53 @@ $color-grey-600: #4f5b70;
 	align-items: center;
 
 	h1 {
-		font-size: 1.5rem;
+		font-size: 1.8rem;
 		text-transform: uppercase;
 		color: $color-primary-800;
-		font-weight: 500;
-		position: relative;
+		font-weight: 600;
+	}
+}
+.edit_post__controls {
+	display: flex;
+	gap: 1rem;
+}
 
-		&::before {
-			width: 80px;
-			height: 3px;
-			top: -4px;
-			left: 0;
-			content: '';
-			position: absolute;
-			background-color: $color-secondary-200;
-			border-radius: 6px;
-		}
+.edit_post__save_btn,
+.edit_post__delete_btn,
+.edit_post__back_btn {
+	padding: 0.4rem 1rem;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+	white-space: nowrap;
+	border-radius: 6px;
+	height: 42px;
+	border: 2px solid $color-grey-400;
+	color: $color-grey-400;
+
+	&:hover {
+		border-color: $color-save;
+		color: $color-save;
+		transform: scale(1.02);
+		transition: transform 0.1s linear;
+		box-shadow: 2px 2px 8px rgba(37, 86, 32, 0.05);
+		cursor: pointer;
 	}
-	div {
-		button {
-			padding: 0.4rem 1rem;
-			background-color: $color-secondary-200;
-		}
-	}
+}
+
+.edit_post__delete_btn:hover {
+	border-color: $color-error-text;
+	color: $color-error-text;
+	box-shadow: 2px 2px 8px rgba(86, 41, 32, 0.05);
+}
+.edit_post__back_btn:hover {
+	border-color: $color-primary-600;
+	color: $color-primary-600;
+	box-shadow: 2px 2px 8px rgba(32, 63, 86, 0.05);
 }
 
 .edit_post__container {
@@ -291,22 +360,52 @@ $color-grey-600: #4f5b70;
 }
 .edit_post__title {
 	padding: 0.5rem 1rem;
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
 	border-radius: 6px;
 	max-width: 800px;
-	outline: 2px solid $color-grey-200;
+	outline: 2px solid $color-grey-100;
 
 	input {
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 		font-weight: 600;
 		width: 100%;
 		color: $color-primary-800;
+		opacity: 0.7;
 		&:focus-visible {
 			outline: none;
+			opacity: 1;
 		}
 	}
 
 	&:focus-within {
 		outline-color: $color-primary-400;
 	}
+}
+.edit_all_posts__container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+	margin: 2rem 4rem;
+}
+.edit_all__post_card {
+	padding: 1.5rem;
+	margin: 1rem;
+	border: 2px solid $color-grey-300;
+	border-radius: 6px;
+	cursor: pointer;
+
+	h3 {
+		margin: 0;
+	}
+
+	&:hover {
+		border-color: $color-secondary-200;
+		transform: scale(1.03);
+		transition: transform 0.2s linear;
+	}
+}
+.edit_all__status {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	color: $color-grey-300;
 }

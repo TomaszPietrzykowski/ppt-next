@@ -5,7 +5,7 @@ $color-primary-900: #05152e;
 $color-secondary-200: #fc990e;
 $color-secondary-400: #cf7e0c;
 $color-error-text: #e02e06;
-$color-grey-100: #f9fbff;
+$color-grey-100: #edf0f6;
 $color-grey-200: #cad0db;
 $color-grey-300: #b2bbcb;
 $color-grey-600: #4f5b70;
@@ -23,6 +23,8 @@ $color-grey-600: #4f5b70;
 	&:hover {
 		border-color: $color-primary-600;
 		color: $color-primary-600;
+		transform: scale(1.02);
+		box-shadow: 1px 1px 4px rgba(172, 213, 227, 0.4);
 	}
 	& > * {
 		color: inherit;

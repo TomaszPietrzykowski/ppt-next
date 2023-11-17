@@ -6,7 +6,7 @@ const UserDashboard = () => {
 	return (
 		<Fragment>
 			<div className={styles.user__profile}>
-				<h1>Moje konto</h1>
+				<h2>Strefa autora</h2>
 				<Link href='/user/edit/blog'>
 					<button>Edytuj Blog</button>
 				</Link>

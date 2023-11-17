@@ -21,7 +21,7 @@ const PostCard: React.FC<IProps> = ({ post }) => {
 
 	return (
 		<li className={styles.post}>
-			<Link href={post.content}>
+			<Link href={''}>
 				<div className={styles.image}>
 					<Image
 						src={dummyImage}
@@ -33,9 +33,8 @@ const PostCard: React.FC<IProps> = ({ post }) => {
 				</div>
 				<div className={styles.content}>
 					<h2>{post.title}</h2>
-					<p>{post.content}</p>
+					<p>{post.snippet}</p>
 					<small>Date: {formattedDate}</small>
-					<small>Author: {post.author}</small>
 				</div>
 			</Link>
 		</li>

@@ -47,14 +47,6 @@ const TiptapToolbar = ({ editor }: { editor: Editor | null }) => {
 				<Strikethrough />
 			</EditorToggle>
 			<EditorToggle
-				pressed={editor.isActive('heading', { level: 1 })}
-				onPressedChange={() =>
-					editor.chain().focus().toggleHeading({ level: 1 }).run()
-				}
-			>
-				<Heading1 />
-			</EditorToggle>
-			<EditorToggle
 				pressed={editor.isActive('heading', { level: 2 })}
 				onPressedChange={() =>
 					editor.chain().focus().toggleHeading({ level: 2 }).run()
@@ -87,19 +79,14 @@ const TiptapToolbar = ({ editor }: { editor: Editor | null }) => {
 				<ListOrdered />
 			</EditorToggle>
 			<EditorToggle
-				pressed={editor.isActive('heading')}
+				pressed={editor.isActive('blockquote')}
 				onPressedChange={() =>
 					editor.chain().focus().toggleBlockquote().run()
 				}
 			>
 				<Quote />
 			</EditorToggle>
-			<EditorToggle
-				pressed={false}
-				onPressedChange={() =>
-					editor.chain().focus().toggleBlockquote().run()
-				}
-			>
+			<EditorToggle pressed={false} onPressedChange={() => ({})}>
 				<ImagePlus />
 			</EditorToggle>
 		</div>

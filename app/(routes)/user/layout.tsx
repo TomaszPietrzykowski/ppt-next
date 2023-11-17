@@ -1,10 +1,10 @@
 'use client';
 
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../_styles/user.module.scss';
-import Link from 'next/link';
 import { useGlobalContext } from '@/app/_context/store';
 import { useRouter } from 'next/navigation';
+import { User, UserCog } from 'lucide-react';
 
 const UserLayout = ({ children }: { children: React.ReactNode }) => {
 	const { user, logOut } = useGlobalContext();
@@ -17,26 +17,42 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 	}, [user, router]);
 
 	return (
-		<Fragment>
-			<div className={styles.user_layout__container}>
-				<div className={styles.user_layout__sidenav}>
-					<nav>
-						<ul className={styles.dashboard__nav}>
-							<Link href='/user/edit'>
-								<li>STREFA AUTORA</li>
-							</Link>
-							<div
-								className={styles.sidenav_link}
-								onClick={() => logOut(null)}
-							>
-								<li>WYLOGUJ</li>
+		<div className={styles.user_layout__container}>
+			<div className={styles.user_layout__sidenav}>
+				<nav>
+					<ul className={styles.dashboard__nav}>
+						<div className={styles.sidenav_avatar__container}>
+							<div className={styles.sidenav_avatar}></div>
+						</div>
+						{user && (
+							<div className={styles.sidenav_user_data}>
+								<h2>{user.name}</h2>
+								<p>{user.email}</p>
 							</div>
-						</ul>
-					</nav>
-				</div>
-				<div className={styles.user_layout__content}>{children}</div>
+						)}
+						<div
+							className={styles.sidenav_link}
+							onClick={() => logOut(null)}
+						>
+							<li>
+								<UserCog />
+								<span>EDYTUJ DANE</span>
+							</li>
+						</div>
+						<div
+							className={styles.sidenav_link}
+							onClick={() => logOut(null)}
+						>
+							<li>
+								<User />
+								<span>WYLOGUJ</span>
+							</li>
+						</div>
+					</ul>
+				</nav>
 			</div>
-		</Fragment>
+			<div className={styles.user_layout__content}>{children}</div>
+		</div>
 	);
 };
 

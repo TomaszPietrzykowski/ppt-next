@@ -4,7 +4,6 @@ import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import styles from '@/app/_styles/shared.module.scss';
 import TiptapToolbar from './TiptapToolbar';
-import { useEffect } from 'react';
 
 const html = `<h1><strong>Jouw zorgverzekering in 2024</strong></h1>
 <ol>
@@ -20,7 +19,7 @@ const html = `<h1><strong>Jouw zorgverzekering in 2024</strong></h1>
 
 interface IProps {
 	description: string;
-	onChange: (richText: string) => void;
+	onChange: ({}) => void;
 	original_html?: string;
 }
 
@@ -34,7 +33,7 @@ const Tiptap = ({ onChange, original_html }: IProps) => {
 			},
 		},
 		onUpdate({ editor }) {
-			onChange(editor.getHTML());
+			onChange({ html: editor.getHTML(), text: editor.getText() });
 			console.log(editor.getHTML());
 		},
 	});

@@ -20,7 +20,7 @@ const Header = () => {
 			className='layout__header'
 			style={{
 				background: `rgba(255, 255, 255, ${
-					0 + useScrollPosition(0.003)
+					0 + useScrollPosition(0.005)
 				})`,
 			}}
 		>
@@ -34,17 +34,17 @@ const Header = () => {
 					<Link href='/'>
 						<li>HOME</li>
 					</Link>
-					<Link href='/about'>
-						<li>O MNIE</li>
-					</Link>
 					<Link href='/consultations'>
 						<li>KONSULTACJE</li>
+					</Link>
+					<Link href='/blog'>
+						<li>BLOG</li>
 					</Link>
 					<Link href='/stories'>
 						<li>OPOWIEŚCI</li>
 					</Link>
-					<Link href='/blog'>
-						<li>BLOG</li>
+					<Link href='/about'>
+						<li>O MNIE</li>
 					</Link>
 					<Link href='/contact'>
 						<li>KONTAKT</li>
