@@ -50,8 +50,6 @@ const initialState: IContextProps = {
 	setLoadingUser: () => {},
 };
 
-console.log('STORE: ', initialState);
-
 const GlobalContext = createContext<IContextProps>(initialState);
 
 export const GlobalContextProvider = ({ children }: IProviderProps) => {

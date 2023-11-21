@@ -58,7 +58,6 @@ const EditBlog = ({ postId, reset }: { postId: string; reset: () => void }) => {
 	};
 
 	const saveChanges = async () => {
-		console.log(user);
 		let action_url = `${baseUrl}/api/blog/${postId}`;
 		let action_method = `PUT`;
 		let headers = {
@@ -78,13 +77,7 @@ const EditBlog = ({ postId, reset }: { postId: string; reset: () => void }) => {
 				action_url = `${baseUrl}/api/blog`;
 				action_method = `POST`;
 			}
-			console.log(
-				'Request status: ',
-				action_url,
-				action_method,
-				headers,
-				action_body
-			);
+
 			const res = await fetch(action_url, {
 				method: action_method,
 				headers,

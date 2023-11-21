@@ -34,7 +34,6 @@ const Tiptap = ({ onChange, original_html }: IProps) => {
 		},
 		onUpdate({ editor }) {
 			onChange({ html: editor.getHTML(), text: editor.getText() });
-			console.log(editor.getHTML());
 		},
 	});
 

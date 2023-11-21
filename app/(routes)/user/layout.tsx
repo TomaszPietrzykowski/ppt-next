@@ -5,6 +5,7 @@ import styles from '../../_styles/user.module.scss';
 import { useGlobalContext } from '@/app/_context/store';
 import { useRouter } from 'next/navigation';
 import { User, UserCog } from 'lucide-react';
+import dynamic from 'next/dynamic';
 
 const UserLayout = ({ children }: { children: React.ReactNode }) => {
 	const { user, logOut } = useGlobalContext();
@@ -17,7 +18,7 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 	}, [user, router]);
 
 	return (
-		<div className={styles.user_layout__container}>
+		<div className={styles.user_layout__container} suppressHydrationWarning>
 			<div className={styles.user_layout__sidenav}>
 				<nav>
 					<ul className={styles.dashboard__nav}>
@@ -56,4 +57,4 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 	);
 };
 
-export default UserLayout;
+export default dynamic(() => Promise.resolve(UserLayout), { ssr: false });
