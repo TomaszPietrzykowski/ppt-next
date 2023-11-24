@@ -63,6 +63,8 @@ $color-grey-600: #4f5b70;
 	padding: 4rem;
 	min-height: 70vh;
 	text-align: center;
+	position: relative;
+	z-index: 11;
 
 	.section_title {
 		position: relative;
@@ -92,7 +94,6 @@ $color-grey-600: #4f5b70;
 	grid-template-columns: repeat(3, 120px);
 	grid-template-rows: repeat(3, 120px);
 	gap: 6px;
-	// transform: rotate(45deg);
 }
 .romb_inner {
 	border-radius: 8px;
@@ -100,6 +101,7 @@ $color-grey-600: #4f5b70;
 	height: 120px;
 	cursor: pointer;
 	background-color: #dc934423;
+	// box-shadow: 0px 0px 20px -4px hsla(220, 100%, 20%, 0.1);
 
 	&:hover {
 		background-color: #dc934442;
@@ -113,4 +115,7 @@ $color-grey-600: #4f5b70;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 8rem;
+	box-shadow: 0px 6px 8px 6px rgba(0, 0, 0, 0.15);
+	position: relative;
+	z-index: 10;
 }

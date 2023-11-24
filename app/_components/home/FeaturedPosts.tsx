@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { IPost } from '../../_types/ppt-types';
-import styles from '../../_styles/home.module.scss';
+import styles from '@/app/_styles/home.module.scss';
 import PostsGrid from '../blog/PostsGrid';
 
 const baseUrl = 'http://localhost:5000';
@@ -13,7 +13,7 @@ const FeaturedPosts = () => {
 
 	useEffect(() => {
 		getPosts();
-	});
+	}, []);
 
 	const getPosts = async () => {
 		try {

@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import background from '../../../public/images/site/backgroud.jpg';
-import styles from '../../../app/_styles/home.module.scss';
+import styles from '@/app/_styles/home.module.scss';
 import useScrollPosition from '@/app/_hooks/useScrollPosition';
 
 const Hero = () => {
