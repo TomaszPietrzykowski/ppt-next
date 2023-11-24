@@ -5,6 +5,7 @@ import { IPost } from '../../_types/ppt-types';
 
 interface IProps {
 	posts: Array<IPost>;
+	loading: boolean;
 }
 
 const PostsGrid: React.FC<IProps> = ({ posts }) => {

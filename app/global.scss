@@ -4,6 +4,7 @@ $color-primary-800: #081f45;
 $color-primary-text: #0a234b;
 $color-primary-900: #05152e;
 $color-secondary-200: #fc990e;
+$color-secondary-300: #eb9010;
 $color-secondary-400: #cf7e0c;
 $color-error-text: #e02e06;
 $color-save: #4ebb49;
@@ -94,10 +95,6 @@ pre {
 		margin-inline: 1rem;
 		font-size: 1.1rem;
 		font-weight: 500;
-
-		&:hover {
-			color: $color-secondary-400;
-		}
 	}
 }
 

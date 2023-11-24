@@ -1,9 +1,11 @@
 $color-primary-400: #1557bf;
+$color-primary-500: #1551b1;
 $color-primary-600: #114393;
 $color-primary-800: #081f45;
 $color-primary-text: #0a234b;
 $color-primary-900: #05152e;
 $color-secondary-200: #fc990e;
+$color-secondary-300: #eb9010;
 $color-secondary-400: #cf7e0c;
 $color-error-text: #e02e06;
 $color-save: #4ebb49;
@@ -17,9 +19,30 @@ $color-grey-600: #4f5b70;
 .logo_image {
 	margin-top: 4px;
 }
-.nav_item {
-	color: $color-primary-text;
-}
+
 .nav_item__active {
 	color: $color-secondary-400;
+}
+
+.nav_item {
+	color: $color-primary-text;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -2px;
+		background: $color-secondary-300;
+		height: 2px;
+		width: 0%;
+		border-radius: 2px;
+		transition: all 300ms ease-out;
+	}
+	&:hover {
+		color: $color-primary-500;
+	}
+	&:hover::after {
+		width: 100%;
+	}
 }

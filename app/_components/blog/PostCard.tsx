@@ -23,17 +23,18 @@ const PostCard: React.FC<IProps> = ({ post }) => {
 		<li className={styles.post}>
 			<Link href={''}>
 				<div className={styles.image}>
-					<Image
+					{/* <Image
 						src={dummyImage}
-						width={600}
-						height={600}
+						width={300}
+						height={200}
 						alt='sensible desc'
+						className={styles.post_card__image}
 						unoptimized
-					/>
+					/> */}
 				</div>
 				<div className={styles.content}>
 					<h2>{post.title}</h2>
-					<p>{post.snippet}</p>
+					<p>{post.content_text?.slice(0, 160)}</p>
 					<small>Date: {formattedDate}</small>
 				</div>
 			</Link>

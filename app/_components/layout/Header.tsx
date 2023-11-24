@@ -28,6 +28,10 @@ const Header = () => {
 				background: `rgba(255, 255, 255, ${
 					0 + useScrollPosition(0.002) + (pathname == '/' ? 0 : 1)
 				})`,
+				boxShadow:
+					useScrollPosition(1) > 160
+						? `0px -4px 6px 6px rgba(0,0,0,0.15)`
+						: 'none',
 			}}
 		>
 			<div className='layout__header-logo'>
