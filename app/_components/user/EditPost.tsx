@@ -8,7 +8,7 @@ import { IPost } from '@/app/_types/ppt-types';
 import { useGlobalContext } from '@/app/_context/store';
 
 const temporaryText = '';
-const baseUrl = 'http://localhost:5000';
+const baseUrl = 'https://michalstachnik.pl';
 
 const EditBlog = ({ postId, reset }: { postId: string; reset: () => void }) => {
 	// const { id } = useParams();
@@ -44,6 +44,7 @@ const EditBlog = ({ postId, reset }: { postId: string; reset: () => void }) => {
 					setUndoPost(parsed.data.post);
 					setNewTitle(parsed.data.post.title);
 					setContentHtml(parsed.data.post.content_html);
+					setContentText(parsed.data.post.content_text);
 					setIsPublished(parsed.data.post.isPublished);
 				} else {
 					setEditError(`Nie znaleziono posta o id: "${postId}"`);

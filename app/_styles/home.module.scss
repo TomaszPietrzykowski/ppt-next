@@ -68,6 +68,7 @@ $color-grey-600: #4f5b70;
 
 	.section_title {
 		position: relative;
+		margin-block: 2rem;
 		&::after {
 			content: '';
 			position: absolute;

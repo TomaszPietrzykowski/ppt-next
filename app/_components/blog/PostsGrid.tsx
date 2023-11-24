@@ -11,8 +11,8 @@ interface IProps {
 const PostsGrid: React.FC<IProps> = ({ posts }) => {
 	return (
 		<ul className={styles.posts__grid}>
-			{posts.map((post: IPost) => (
-				<PostCard key={post._id} post={post} />
+			{posts.map((post: IPost, i: number) => (
+				<PostCard key={post._id} index={i} post={post} />
 			))}
 		</ul>
 	);

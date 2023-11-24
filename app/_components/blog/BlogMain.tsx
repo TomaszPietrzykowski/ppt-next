@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { IPost } from '../../_types/ppt-types';
-import styles from '@/app/_styles/home.module.scss';
-import PostsGrid from '../blog/PostsGrid';
+import PostsGrid from './PostsGrid';
+import { IPost } from '@/app/_types/ppt-types';
+import styles from '@/app/_styles/blog.module.scss';
 
 const baseUrl = 'https://michalstachnik.pl';
 
-const FeaturedPosts = () => {
+const BlogMain = () => {
 	const [posts, setPosts] = useState<Array<IPost>>([]);
+	const [post, setPost] = useState<IPost | null>(null);
 	const [loading, setLoading] = useState<boolean>(false);
 
 	useEffect(() => {
@@ -18,7 +19,7 @@ const FeaturedPosts = () => {
 	const getPosts = async () => {
 		try {
 			setLoading(true);
-			const res = await fetch(`${baseUrl}/api/blog/latest`);
+			const res = await fetch(`${baseUrl}/api/blog`);
 			const response = await res.json();
 			if (response.status === 'success') {
 				setPosts(response.data.posts);
@@ -26,12 +27,16 @@ const FeaturedPosts = () => {
 			setLoading(false);
 		} catch (err) {}
 	};
-	return (
-		<div className={styles.featured__grid}>
-			<h2 className={styles.section_title}>Nowości w blogu</h2>
+	return post ? (
+		<div>post details: {post.content_text}</div>
+	) : (
+		<div className={styles.blog_main__grid}>
+			<h2 className={styles.section_title}>
+				Pozytywny <span className={styles.highlight}>Blog</span>
+			</h2>
 			<PostsGrid posts={posts} loading={loading} />
 		</div>
 	);
 };
 
-export default FeaturedPosts;
+export default BlogMain;

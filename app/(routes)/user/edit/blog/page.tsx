@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '@/app/_styles/user.module.scss';
 import EditBlog from '@/app/_components/user/EditPost';
 
-const baseUrl = 'http://localhost:5000';
+const baseUrl = 'https://michalstachnik.pl';
 
 const EditAllPosts = () => {
 	const [posts, setPosts] = useState<IPost[]>([]);

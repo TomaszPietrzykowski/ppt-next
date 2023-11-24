@@ -42,7 +42,7 @@ const UserForm = ({ variant }: IProps) => {
 		try {
 			setLoadingUser(true);
 			const rawResponse = await fetch(
-				`https://tophoneys.tomaszpietrzykowski.com/api/users/${variant}`,
+				`https://michalstachnik.pl/api/users/${variant}`,
 				{
 					method: 'POST',
 					headers: {
