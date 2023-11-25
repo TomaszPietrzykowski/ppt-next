@@ -1,3 +1,4 @@
+import Footer from './_components/layout/Footer';
 import Header from './_components/layout/Header';
 import { GlobalContextProvider } from './_context/store';
 import './global.scss';
@@ -19,7 +20,7 @@ export default function RootLayout({
 				<GlobalContextProvider>
 					<Header />
 					{children}
-					<h1>Footer</h1>
+					<Footer />
 				</GlobalContextProvider>
 			</body>
 		</html>
