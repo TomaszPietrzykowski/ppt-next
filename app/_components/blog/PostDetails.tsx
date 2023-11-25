@@ -23,14 +23,6 @@ const PostDetails = ({ post, selectPost }: IProps) => {
 			</div>
 			<div className={styles.post_details__status}>
 				<div>
-					<User />
-					<span>
-						{typeof post.author !== 'string'
-							? post.author.name
-							: post.author}
-					</span>
-				</div>
-				<div>
 					<Calendar />
 					<span>
 						{new Date(post.createdAt).toLocaleDateString('en-US', {
@@ -38,6 +30,14 @@ const PostDetails = ({ post, selectPost }: IProps) => {
 							month: 'long',
 							year: 'numeric',
 						})}
+					</span>
+				</div>
+				<div>
+					<User />
+					<span>
+						{typeof post.author !== 'string'
+							? post.author.name
+							: post.author}
 					</span>
 				</div>
 			</div>

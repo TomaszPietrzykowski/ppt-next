@@ -10,7 +10,7 @@ const baseUrl = 'https://michalstachnik.pl';
 const EditAllPosts = () => {
 	const [posts, setPosts] = useState<IPost[]>([]);
 	const [editedPost, setEditedPost] = useState<string>('');
-	const [loading, setLoading] = useState<boolean>(false);
+	const [loading, setLoading] = useState<boolean>(true);
 
 	useEffect(() => {
 		getPosts();
@@ -33,7 +33,14 @@ const EditAllPosts = () => {
 	};
 
 	return loading ? (
-		<h1>loading...</h1>
+		<>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<h1>loading...</h1>
+		</>
 	) : editedPost ? (
 		<EditBlog postId={editedPost} reset={() => setEditedPost('')} />
 	) : (

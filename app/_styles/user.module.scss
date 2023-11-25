@@ -59,6 +59,7 @@ $color-grey-600: #4f5b70;
 .sidenav_link_inactive {
 	cursor: default;
 	margin-block: 4px;
+	pointer-events: none;
 
 	li {
 		color: $color-grey-200;

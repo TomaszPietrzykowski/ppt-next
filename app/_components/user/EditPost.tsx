@@ -8,9 +8,15 @@ import { IPost } from '@/app/_types/ppt-types';
 import { useGlobalContext } from '@/app/_context/store';
 
 const temporaryText = '';
+// const baseUrl = 'https://localhost:5000';
 const baseUrl = 'https://michalstachnik.pl';
 
-const EditBlog = ({ postId, reset }: { postId: string; reset: () => void }) => {
+interface IProps {
+	postId: string;
+	reset: () => void;
+}
+
+const EditBlog = ({ postId, reset }: IProps) => {
 	// const { id } = useParams();
 	const [undoPost, setUndoPost] = useState<IPost | null>(null);
 	const [newTitle, setNewTitle] = useState<string>('');
@@ -104,6 +110,32 @@ const EditBlog = ({ postId, reset }: { postId: string; reset: () => void }) => {
 		}
 	};
 
+	const deletePost = async () => {
+		if (confirm('Jesteś pewien, że chcesz trwale usunąć ten post?')) {
+			let headers = {
+				Authorization: `Bearer ${user?.token}`,
+			};
+			try {
+				setLoading(true);
+				setEditError(null);
+				await fetch(`${baseUrl}/api/blog/${postId}`, {
+					method: `DELETE`,
+					headers,
+				});
+				reset();
+				setNewTitle('');
+				setContentHtml('');
+				setContentText('');
+				setIsPublished(false);
+				setLoading(false);
+			} catch (err) {
+				setEditError(`Bład podczas próby usuniecia posta: "${err}"`);
+				console.log(edditError);
+				setLoading(false);
+			}
+		}
+	};
+
 	const handleEditorOutput = (e: any) => {
 		setContentHtml(e.html);
 		setContentText(e.text);
@@ -125,7 +157,7 @@ const EditBlog = ({ postId, reset }: { postId: string; reset: () => void }) => {
 					</button>
 
 					<button
-						onClick={reset}
+						onClick={deletePost}
 						className={styles.edit_post__delete_btn}
 					>
 						<Trash2 />

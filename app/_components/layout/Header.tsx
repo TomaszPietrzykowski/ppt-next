@@ -61,7 +61,7 @@ const Header = () => {
 					<Link href='/consultations'>
 						<li
 							className={
-								pathname == '/consultations'
+								pathname.startsWith('/consultations')
 									? styles.nav_item__active
 									: styles.nav_item
 							}
@@ -72,7 +72,7 @@ const Header = () => {
 					<Link href='/blog'>
 						<li
 							className={
-								pathname == '/blog'
+								pathname.startsWith('/blog')
 									? styles.nav_item__active
 									: styles.nav_item
 							}
@@ -83,7 +83,7 @@ const Header = () => {
 					<Link href='/stories'>
 						<li
 							className={
-								pathname == '/stories'
+								pathname.startsWith('/stories')
 									? styles.nav_item__active
 									: styles.nav_item
 							}
@@ -94,7 +94,7 @@ const Header = () => {
 					<Link href='/about'>
 						<li
 							className={
-								pathname == '/about'
+								pathname.startsWith('/about')
 									? styles.nav_item__active
 									: styles.nav_item
 							}
@@ -105,7 +105,7 @@ const Header = () => {
 					<Link href='/contact'>
 						<li
 							className={
-								pathname == '/contact'
+								pathname.startsWith('/contact')
 									? styles.nav_item__active
 									: styles.nav_item
 							}
