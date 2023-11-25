@@ -29,7 +29,13 @@ const FeaturedPosts = () => {
 	return (
 		<div className={styles.featured__grid}>
 			<h2 className={styles.section_title}>Nowości w blogu</h2>
-			<PostsGrid posts={posts} loading={loading} />
+			<PostsGrid
+				posts={posts}
+				loading={loading}
+				selectPost={() => {
+					console.log('');
+				}}
+			/>
 		</div>
 	);
 };

@@ -27,14 +27,34 @@ const BlogMain = () => {
 			setLoading(false);
 		} catch (err) {}
 	};
+
+	const selectPost = (post: IPost | null) => {
+		setPost(post);
+	};
 	return post ? (
-		<div>post details: {post.content_text}</div>
+		<div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<button onClick={() => setPost(null)}>Go back</button>
+			<br />
+			{post.title}
+			{post.content_text}
+		</div>
 	) : (
 		<div className={styles.blog_main__grid}>
 			<h2 className={styles.section_title}>
 				Pozytywny <span className={styles.highlight}>Blog</span>
 			</h2>
-			<PostsGrid posts={posts} loading={loading} />
+			<PostsGrid
+				posts={posts}
+				loading={loading}
+				selectPost={selectPost}
+			/>
 		</div>
 	);
 };
