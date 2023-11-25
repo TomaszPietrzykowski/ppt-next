@@ -1,8 +1,10 @@
 $color-primary-400: #1557bf;
 $color-primary-600: #114393;
 $color-primary-800: #081f45;
+$color-primary-text: #0a234b;
 $color-primary-900: #05152e;
 $color-secondary-200: #fc990e;
+$color-secondary-300: #eb9010;
 $color-secondary-400: #cf7e0c;
 $color-error-text: #e02e06;
 $color-save: #4ebb49;
@@ -47,6 +49,20 @@ $color-grey-600: #4f5b70;
 .sidenav_link {
 	cursor: pointer;
 	margin-block: 4px;
+
+	&:hover {
+		li {
+			color: $color-secondary-300;
+		}
+	}
+}
+.sidenav_link_inactive {
+	cursor: default;
+	margin-block: 4px;
+
+	li {
+		color: $color-grey-200;
+	}
 }
 
 .sidenav_avatar__container {
@@ -92,7 +108,6 @@ $color-grey-600: #4f5b70;
 }
 
 .user__profile {
-	margin-bottom: 100rem;
 	padding: 2rem 4rem;
 
 	h2 {
@@ -146,7 +161,6 @@ $color-grey-600: #4f5b70;
 	display: grid;
 	width: 100%;
 	grid-template-columns: 300px 1fr;
-	min-height: 100vh;
 }
 
 .user_layout__sidenav ul {

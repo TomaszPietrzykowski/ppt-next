@@ -10,9 +10,9 @@ const UserDashboard = () => {
 				<Link href='/user/edit/blog'>
 					<button>Edytuj Blog</button>
 				</Link>
-				<Link href='/user/edit/stories'>
+				{/* <Link href='/user/edit/stories'>
 					<button>Edytuj Opowiesci</button>
-				</Link>
+				</Link> */}
 			</div>
 		</Fragment>
 	);

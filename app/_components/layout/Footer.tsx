@@ -8,9 +8,11 @@ const Footer = () => {
 				display: 'flex',
 				justifyContent: 'center',
 				padding: '0.5rem',
+				position: 'absolute',
+				bottom: 0,
 			}}
 		>
-			<h3>michalstachnik.pl © {new Date().getFullYear()}</h3>
+			<h4>michalstachnik.pl © {new Date().getFullYear()}</h4>
 		</div>
 	);
 };

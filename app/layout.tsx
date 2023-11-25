@@ -16,7 +16,13 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body>
+			<body
+				style={{
+					minHeight: '101vh',
+					position: 'relative',
+					paddingBottom: '83px',
+				}}
+			>
 				<GlobalContextProvider>
 					<Header />
 					{children}

@@ -32,6 +32,7 @@ const EditBlog = ({ postId, reset }: { postId: string; reset: () => void }) => {
 			setEditError(null);
 			setNewTitle('Tytuł');
 			setContentHtml('<p>treść posta...</p>');
+			setContentText('treść posta...');
 			setIsPublished(false);
 			setLoading(false);
 		} else {

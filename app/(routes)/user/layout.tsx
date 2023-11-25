@@ -32,7 +32,7 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
 							</div>
 						)}
 						<div
-							className={styles.sidenav_link}
+							className={styles.sidenav_link_inactive}
 							onClick={() => logOut(null)}
 						>
 							<li>
